@@ -1,0 +1,25 @@
+{% extends "user_base.html" %}
+
+{% block content %}
+<div class="row">
+	<div class="col-sm-12">
+		<div class="thumbnail bg-light" style="margin-top:10px;">
+		<h1 id="user-detail-h1"> {{object.username}} Adlı üyenin tüm bilgileri aşağıdadır.. <br> </h1>
+
+		<ol class="user-list">
+
+		    <li> <b>Name: </b> {{object.first_name}} </li>
+		    <li> <b>Surname: </b>{{object.last_name}} </li>
+		    <li> <b>Mail: </b> {{object.email}} </li>
+		    {% comment %}
+		    <li> <b>Phone Number: </b> {{object.phone_number}} </li>
+		    <li> <b>Adı: </b> {{object.name}} </li>
+		    {% endcomment %}  
+		    <li> <b>User Since: </b> {{object.timestamp}} </li>
+		    <li> <b>Last Update: </b> {{object.updated}} </li>
+		    <li> <b>Makaleleri için <a href="{% url 'author-detail' username=object.username %}">tıklayın</a> </b></li>
+		</ol>
+		</div>
+	</div>
+</div>
+{% endblock content %}

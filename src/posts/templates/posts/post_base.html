@@ -1,0 +1,179 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Mirac Baydemir</title>
+
+    <!-- Bootstrap -->
+    <link href="{% static 'posts/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href = "{% static 'posts/css/postapp_css.css' %}" rel="stylesheet">
+
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+<body>
+  {% autoescape off %}
+    <nav class="navbar navbar-toggleable-sm navbar-light" style="background-color: #000099">
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" style="color:white">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="navbar-brand" href="/home"><img src="{% static 'posts/logos.png' %}" width="250px" height="40px" alt="logo"> </a>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item dropdown" style="margin: 5px 20px 5px 20px; display: block">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:white"> Endüstri Mühendisliği </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item" href="/posts/queue-models">Kuyruk Modelleri</a>
+              <a class="dropdown-item" href="/posts/production-planning">Üretim Planlama ve Kontrol</a>
+            </div>
+          </li>
+          <li class="nav-item dropdown" style="margin: 5px 5px 5px 5px;">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: white"> Bilgisayar Bilimleri </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item" href="/posts/python">Python</a>
+              <a class="dropdown-item" href="/posts/java">Java</a>
+              <a class="dropdown-item" href="/posts/machine-learning">Makine Öğrenmesi</a>
+            </div>
+          </li>
+          <li class="nav-item" style="margin: 5px 5px 5px 5px;">
+            <a class="nav-link" href="/about" style="color: white">Hakkımda</a>
+          </li>
+          <li class="nav-item" style="margin: 5px 5px 5px 5px;">
+            <a class="nav-link" href="/contact" style="color: white">İletişim</a>
+          </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" id="myid" type="text" placeholder="Makale Ara..">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Ara</button>
+        </form>
+      </div>
+    </nav>
+
+    <div class="mainArchitecture">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-9">
+            <div class="mainColumn1">
+              <div class="PostTitle">
+                {%block postTitle%}
+                {%endblock postTitle%}
+              </div>
+              <div class="PostBody">
+                {%block postBody%}
+                {%endblock postBody%}
+              </div> 
+            </div> 
+          </div>
+
+          <div class="col-md-3">
+            <div class="mainColumn2">
+              <!-- SUBSCRIPTION, LATEST POSTS, POSTS..--> 
+              <div class="Subscription"> <!-- SUBSCRIPTION MENU ALWAYS WILL BE HERE AT ANY POST URL -->
+                <ul class="list-group">
+                  <li class="list-group-item active" style="text-align: center;"> 
+                    <h4>Makalelerden Haberim Olsun</h4>
+                  </li>
+                  <li class="list-group-item" style="text-align: center;">
+                    <h6>E-Mail Listesine Üye Olarak Makaleler Yayınlandığında Bildiri Alabilirsin.</h6> <br><br><br>
+                    <div class="container">
+                      <!-- Button to Open the Modal -->
+                      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#subsModal">
+                        Mail Listesine Üye Ol!
+                      </button>
+
+                      <!-- The Modal -->
+                      <div class="modal fade" id="subsModal">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                          
+                            <!-- Modal Header -->
+                            <div class="modal-header">
+                              <h4 class="modal-title">Mail Listesine Üye Ol!</h4>
+                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+                            
+                            <!-- Modal body -->
+                            <div class="modal-body">
+                             <p>Aşağıdaki forma yalnızca e-mail adresini girerek paylaştığım makalelerden haberdar olabilirsin.</p>
+                              <form>
+                                <div class="form-group">
+                                  <label for="mail-adress" class="form-control-label">E-Mail:</label>
+                                  <input type="email" class="form-control" id="recipient-name">
+                                </div>
+                              </form>
+                            </div>
+                            
+                            <!-- Modal footer -->
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-primary" data-dismiss="modal">Aktivasyon Mailini Yolla</button>
+                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Vazgeç</button>
+                            </div>
+                            
+                          </div>
+                        </div>
+                      </div>  
+                    </div>
+                  </li>
+                </ul>
+              </div>
+              <div class="Latest_Posts">
+                <!-- LATEST POSTS ALWAYS WILL BE HERE AT ANY POST URL -->
+                  <ul class="list-group">
+                      <li class="list-group-item active" style="font-family:'Verdana;'; text-align: left">
+                          <h5>En Son Paylaşılanlar</h5>
+                      </li>
+                    {% for obj in latest %}
+                      <li class="list-group-item" style="font-family:'Verdana;'; text-align: left">
+		                <a href="/posts/{{obj.categories}}/{{obj.slug}}"> {{ obj.title }}</a>
+                      </li>
+                    {% endfor %}
+                  </ul>
+              </div>
+              <div class="Posts"> <!-- LIST OF POSTS OF SELECTED CATEGORY-->
+                {%block posts%}
+                {%endblock posts%}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="myFooter">
+              <hr>
+              <h4 style="text-align: center; font-family: verdana">© Copyright 2017</h4>
+              <h4 style="text-align: center; font-family: verdana">Yayın Hakları Ömer Miraç Baydemir'e Aittir. </h4> <br>
+              <div id="social">
+                <h4 style="text-align: center; font-family: verdana">Sosyal Medya</h4>
+                <a target="_blank" title="Facebook" href="https://www.facebook.com/omer.mirac.baydemir"><img alt="Facebook" src = "{% static 'posts/fb.png' %}" border=0 width="70px" height="70px" > </a>
+                <a target="_blank" title="Instagram" href="http://www.instagram.com/mirac.baydemir"><img alt="Instagram" src = "{% static 'posts/instagram.png' %}" border=0 width="110px" height="110px" > </a>
+                <a target="_blank" title="Gmail" href="http://gmail.com"><img alt="Gmail" src = "{% static 'posts/gmail.png' %}" border=0 width="70px" height="70px" > </a>
+                <a target="_blank" title="Gmail" href="http://www.github.com/outlier-1"><img alt="Github" src = "{% static 'posts/github.png' %}" border=0 width="110px" height="110px" > </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="{% static 'universitedersleri/js/bootstrap.min.js' %} "></script>    
+  {% endautoescape %}
+</body>
+</html>

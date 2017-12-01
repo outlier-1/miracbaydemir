@@ -1,0 +1,24 @@
+{% extends "user_base.html" %}
+{% block head_title %} {{ user.username }} - {{ block.super }}  {% endblock head_title %}
+    
+{% block content %}
+<h1 style="margin-top:12px;">{{ user.username }}'s Posts</h1>
+<hr>
+
+{% for p in user.post_set.all %}
+<div class="row">
+    <div class="col-sm-12" style="margin-bottom: 10px;">
+        <div class="thumbnail" style="padding: 8px;">
+                <li>
+                	{{ p }} | {{ p.category }} | <a href="{% url 'post-detail' post_id=p.pk %}">Go to Post</a>
+                </li>
+        </div>     
+    </div>
+</div>
+
+
+{% endfor %}
+
+{% endblock content %}
+
+

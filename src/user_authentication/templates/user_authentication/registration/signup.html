@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block cssfiles %}    <link rel="stylesheet" type="text/css" href="{% static 'user_authentication/style.css' %}"> {% endblock cssfiles %}
+
+{% block content %}
+<div class="Container" style="width:100%;">
+	<div class="row">
+    <header class="col-xs-12 signup-header">
+        <h1 style="display: inline; padding-left:5px; margin-bottom:20px"> Hesap Oluştur </h1>
+        <p id ="member" class="col-xs-12" style="display: inline; padding-left:5px; margin-top:
+        10px;">Zaten üye misin? <a href="/login"> Giriş Yap </a> </p>
+        <p class="col-xs-12" style="padding-left:5px;"> Aşağıdaki bilgileri eksiksiz doldurarak üniversitedersleri.com üyesi olabilirsiniz. </p>
+        <hr class="hidden-xs">
+    </header>
+    <aside id = "advantages" class="col-xs-12 col-sm-6">
+        <h3 class="col-xs-12" style="float:none;">  Neden Üye Olmalıyım ? </h3> <hr class="hidden-xs">
+        <ul style="padding-left:30px;">
+            <li class="col-xs-12">Takip ettiğiniz bir ders hakkında yeni bir makale yayınlandığında anında haberiniz olur.</li>
+            <li class="col-xs-12">Çıkmış vize ve final sorularını görebilme hakkına sahip olursunuz.</li>
+            <li class="col-xs-12">Makalelere yorum yapabilir, tartışma odalarında konular hakkında fikir beyan edebilirsiniz. </li>
+        </ul>
+    </aside> <!-- ADVANTAGES -->
+    <section class="col-xs-12 col-sm-6">
+        <div class ="signupForm">
+            <form enctype="multipart/form-data" method="post">
+                {% csrf_token %}
+                {% for field in form %}
+                	<div id="fixed-width" class="col-xs-12">
+                    {{ field.label_tag }} <br> {{ field }} <br>
+                	</div>
+                 <!--  COMMENT THAT UNTIL SOLVE THE HELP TEXT BUG. HELP TEXT DOESN'T CHANGE
+                        {% if field.help_text %}
+                        <small style="color: grey">{{ field.help_text|safe }}</small> <br>
+                        {% endif %} -->
+                    {% for error in field.errors %}
+                        <p style="color: red">{{ error|safe }}</p>
+                    {% endfor %}
+                {% endfor %}
+                <button class="col-xs-12" type="submit">Sign up</button>
+            </form>
+        </div>
+    </section> <!-- SIGN UP FORM -->
+	</div>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,30 @@
+{% extends "post_base.html" %}
+
+{% block postTitle %}
+	<h1 class="display-4"> {{post.title}} </h1>
+	<small class="text-muted">Tarih: {{post.timestamp}} </small> <hr>
+{% endblock postTitle %}
+
+{% block postBody %}
+	<p class="postParagraphs">{{post.content}}</p>
+{% endblock postBody %}
+
+
+{% block posts %}
+<ul class="list-group" style="border:2px solid grey; border-radius: 10px;">
+	<li class="list-group-item active">
+		<h5>Kategorideki Diğer Yazılar</h5>
+	</li>
+	{% if articles %}
+    {% for obj in articles %}
+	<li class="list-group-item" style="font-family:'Verdana;'; text-align: left">
+		<a href="/posts/{{obj.categories}}/{{obj.slug}}"> {{ obj.title }}</a>
+    </li>
+    {% endfor %}
+	{% else %}
+	<li class="list-group-item" style="font-family:'Verdana;'; text-align: left">
+		<p>Makale Bulunamadı</p>
+    </li>
+	{% endif %}
+</ul>
+{% endblock posts %}

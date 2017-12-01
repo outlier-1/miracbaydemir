@@ -1,0 +1,79 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:100,300,400,700);
+@import url(https://raw.github.com/FortAwesome/Font-Awesome/master/docs/assets/css/font-awesome.min.css);
+body{
+	background-color: #ebebeb;
+}
+header{
+	margin-left: 80px;
+	margin-right: 80px;
+}
+nav{
+	margin-left: 80px;
+	margin-right: 80px;
+}
+
+.mainArchitecture{
+	margin-left: 66px;
+	margin-right: 66px;
+}
+.mainColumn1{
+	border:1px solid grey;
+  	background-color: white;
+  	min-height: 450px;
+  	margin-top: 20px;
+  	margin-bottom: 20px;
+  	padding: 30px;
+}
+.PostTitle{
+	min-height: 100px;
+	text-align: left;
+}
+.PostBody{
+	min-height: 400px;
+}
+.postParagraphs{
+	text-indent: 50px;
+	text-align: justify;
+	font-family: Verdana;
+}
+.mainColumn2{
+	min-height: 450px;
+	margin-top: 20px;
+  	margin-bottom: 20px;
+}
+.Subscription{
+	min-height: 50px;
+	border:2px solid grey;
+	border-radius: 8px;
+	margin-bottom:20px;
+}
+.Latest_Posts{
+	min-height: 50px;
+	border:2px solid grey;
+	border-radius: 10px;
+}
+.Posts{
+	margin-top:30px;
+}
+
+.page_header{
+  	background-color: #f7f7f7;
+	height: 100px;
+}
+.myFooter{
+	min-height: 100px;
+}
+#social{
+	position: absolute;
+	left:35%;
+	margin-top: 30px;
+	margin-bottom:70px;
+}
+#myid{
+	width: 130px;
+	-webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;"
+}
+#myid:focus {
+    width: 250px;
+}
